@@ -4,7 +4,8 @@ describe('Todo', function(){
     todo = new Todo();
   });
 
-  xit('has an empty list of tasks when created', function(){
+  it('has an empty list of tasks when created', function(){
+    expect(todo.listOfTasks).toEqual([]);
   });
 
   xit('can add tasks to its list', function(){
