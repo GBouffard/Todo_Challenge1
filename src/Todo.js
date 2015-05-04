@@ -1,7 +1,11 @@
 var Todo = function(){
-  this.listOfTasks = []
+  this.listOfTasks = {}
 };
 
 Todo.prototype.addTask = function(string){
-  this.listOfTasks.push(string);
+  this.listOfTasks[string] = false;
+};
+
+Todo.prototype.doneTask = function(string){
+  this.listOfTasks[string] = true;
 };
