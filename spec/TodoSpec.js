@@ -34,15 +34,21 @@ describe('Todo', function(){
     expect(function(){todo.doTask('walk the dog')}).toThrow(new Error('This task is not in the list'));  
   });
 
+  describe('tasks management', function(){
+    beforeEach(function(){
+      todo.addTask('walk the dog');
+      todo.addTask('buy milk');
+      todo.doTask('walk the dog');
+    });
+
   it('can show all tasks and its number', function(){
-    todo.addTask('walk the dog');
-    todo.addTask('buy milk');
-    todo.doTask('walk the dog');
     expect(todo.listOfTasks).toEqual({'walk the dog':true, 'buy milk':false});
     expect(Object.keys(todo.listOfTasks).length).toEqual(2);
   });
 
-  xit('can show all active tasks and its number', function(){
+  it('can show all active tasks and its number', function(){
+    expect(todo.activeTasks).toEqual(['buy milk']);
+    expect(Object.keys(todo.activeTasks).length).toEqual(1);
   });
 
   xit('can show all completed tasks and its number', function(){
@@ -52,5 +58,7 @@ describe('Todo', function(){
   });
 
   xit('can deleted all completed tasks', function(){
+  });
+
   });
 });
