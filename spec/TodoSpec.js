@@ -8,7 +8,9 @@ describe('Todo', function(){
     expect(todo.listOfTasks).toEqual([]);
   });
 
-  xit('can add tasks to its list', function(){
+  it('can add tasks to its list', function(){
+    todo.addTask('walk the dog');
+    expect(todo.listOfTasks).toEqual(['walk the dog']);    
   });
 
   xit('knows that a new added task\'s state is not done (false) when created', function(){
