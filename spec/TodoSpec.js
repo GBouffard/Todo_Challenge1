@@ -61,7 +61,9 @@ describe('Todo', function(){
     expect(todo.listOfTasks).toEqual({});
   });
 
-  xit('can deleted all completed tasks', function(){
+  it('can deleted all completed tasks', function(){
+    todo.deleteCompleted();
+    expect(todo.listOfTasks).toEqual({'buy milk':false});
   });
 
   });

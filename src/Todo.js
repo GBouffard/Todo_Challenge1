@@ -38,3 +38,11 @@ Todo.prototype.doTask = function(string){
 Todo.prototype.clearList = function(){
   this.listOfTasks = {};
 };
+
+Todo.prototype.deleteCompleted = function(){
+  for(i=0;i<(this.completedTasks.length);i++){
+    if(this.completedTasks[i] in this.listOfTasks){
+      delete this.listOfTasks[this.completedTasks[i]]
+    };
+  };
+};
