@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="TodoChallenge1">
+<html lang="en" ng-app="toDoapp">
   <head>
     <meta charset="utf-8">
     <title>Todo Challenge 1</title>
@@ -8,14 +8,15 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="js/app.js"></script>     
+    <script src="js/app.js"></script>
+    <script src="js/controllerToDo.js"></script>   
   </head>
 
-  <body>
+  <body ng-controller="ControllerToDo as mytodo">
     <div id="form_styling">
-      <form>
+      <form class="form-horizontal">
         <img src="http://www.recyclethis.co.uk/wp-content/uploads/2009/01/ttdt-logo.png"><br>
-        <input type="text" placeholder="Add a task">
+        <input type="text" ng-model="mytodo.newTask"placeholder="Add a task">
         <button class="btn btn-link btn-xsm">Add Task</button>
       </form>
       <br><br>
