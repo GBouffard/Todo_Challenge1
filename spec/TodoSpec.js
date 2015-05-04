@@ -31,7 +31,8 @@ describe('Todo', function(){
     expect(function(){todo.doTask('walk the dog')}).toThrow(new Error('This task has already been done'));
   });
 
-  xit('cannot do a task if it\'s not already in the list', function(){
+  it('cannot do a task if it\'s not in the list', function(){
+    expect(function(){todo.doTask('walk the dog')}).toThrow(new Error('This task is not in the list'));  
   });
 
   xit('can show all tasks and its number', function(){
