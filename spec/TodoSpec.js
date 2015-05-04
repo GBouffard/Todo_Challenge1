@@ -21,11 +21,17 @@ describe('Todo', function(){
 
   it('can replace the status of a task to done (true) when done', function(){
     todo.addTask('walk the dog');
-    todo.doneTask('walk the dog');
+    todo.doTask('walk the dog');
     expect(todo.listOfTasks).toEqual({'walk the dog' : true});
   });
 
-  xit('cannot do a task if it\'s already been done', function(){
+  it('cannot do a task if it\'s already been done', function(){
+    todo.addTask('walk the dog');
+    todo.doTask('walk the dog');
+    expect(function(){todo.doTask('walk the dog')}).toThrow(new Error('This task has already been done'));
+  });
+
+  xit('cannot do a task if it\'s not already in the list', function(){
   });
 
   xit('can show all tasks and its number', function(){
