@@ -12,13 +12,17 @@ Todo.prototype.addTask = function(string){
 Todo.prototype.doTask = function(string){
   var theString = string;
   // my refactoring doesnt work. See below. Need to ask Spike and Dan
+
+  // this.checkingForErrors;
   if (this.listOfTasks[theString] === true){ throw new Error('This task has already been done')};
   if (this.listOfTasks[theString] === undefined){ throw new Error('This task is not in the list')};
-  // this.checkingForErrors;
+
   // this.deleteInActiveTasks;
-  var index = this.activeTasks.indexOf(string);
+  var index = this.activeTasks.indexOf(theString);
   this.activeTasks.splice(index, 1);
-  this.listOfTasks[string] = true;
+
+  this.completedTasks.push(theString);
+  this.listOfTasks[theString] = true;
 };
 
 // Todo.prototype.deleteInActiveTasks = function(){

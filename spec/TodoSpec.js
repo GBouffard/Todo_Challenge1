@@ -51,7 +51,9 @@ describe('Todo', function(){
     expect(Object.keys(todo.activeTasks).length).toEqual(1);
   });
 
-  xit('can show all completed tasks and its number', function(){
+  it('can show all completed tasks and its number', function(){
+    expect(todo.completedTasks).toEqual(['walk the dog']);
+    expect(Object.keys(todo.completedTasks).length).toEqual(1);    
   });
 
   xit('can clear the full list of tasks', function(){
