@@ -8,21 +8,20 @@ describe('Todo', function(){
     expect(todo.listOfTasks).toEqual({});
   });
 
-  xit('can add tasks to its list', function(){
-    // This test shoudl work but cannot find the Jasmine matcher for keys
+  it('can add tasks to its list', function(){
     todo.addTask('walk the dog');
-    expect(todo.listOfTasks).toContain('walk the dog');    
+    expect(Object.keys(todo.listOfTasks)).toEqual(['walk the dog']);    
   });
 
   it('knows that a new added task\'s state is not done (false) when created', function(){
     todo.addTask('walk the dog');
-    expect(todo.listOfTasks).toEqual({'walk the dog' : false});   
+    expect(todo.listOfTasks).toEqual({'walk the dog':false});   
   });
 
   it('can replace the status of a task to done (true) when done', function(){
     todo.addTask('walk the dog');
     todo.doTask('walk the dog');
-    expect(todo.listOfTasks).toEqual({'walk the dog' : true});
+    expect(todo.listOfTasks).toEqual({'walk the dog':true});
   });
 
   it('cannot do a task if it\'s already been done', function(){
@@ -35,7 +34,12 @@ describe('Todo', function(){
     expect(function(){todo.doTask('walk the dog')}).toThrow(new Error('This task is not in the list'));  
   });
 
-  xit('can show all tasks and its number', function(){
+  it('can show all tasks and its number', function(){
+    todo.addTask('walk the dog');
+    todo.addTask('buy milk');
+    todo.doTask('walk the dog');
+    expect(todo.listOfTasks).toEqual({'walk the dog':true, 'buy milk':false});
+    expect(Object.keys(todo.listOfTasks).length).toEqual(2);
   });
 
   xit('can show all active tasks and its number', function(){
