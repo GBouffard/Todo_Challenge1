@@ -1,7 +1,7 @@
 var Todo = function(){
-  this.listOfTasks = {}
-  this.activeTasks = []
-  this.completedTasks = []
+  this.listOfTasks = {};
+  this.activeTasks = [];
+  this.completedTasks = [];
 };
 
 Todo.prototype.addTask = function(string){
@@ -26,10 +26,15 @@ Todo.prototype.doTask = function(string){
 };
 
 // Todo.prototype.deleteInActiveTasks = function(){
-
+  // var index = this.activeTasks.indexOf(theString);
+  // this.activeTasks.splice(index, 1);
 // };
 
 // Todo.prototype.checkingForErrors = function(){
 //   if (this.listOfTasks[theString] === true){ throw new Error('This task has already been done')};
 //   if (this.listOfTasks[theString] === undefined){ throw new Error('This task is not in the list')};
 // };
+
+Todo.prototype.clearList = function(){
+  this.listOfTasks = {};
+};

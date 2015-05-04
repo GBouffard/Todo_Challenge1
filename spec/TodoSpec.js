@@ -56,7 +56,9 @@ describe('Todo', function(){
     expect(Object.keys(todo.completedTasks).length).toEqual(1);    
   });
 
-  xit('can clear the full list of tasks', function(){
+  it('can clear the full list of tasks', function(){
+    todo.clearList();
+    expect(todo.listOfTasks).toEqual({});
   });
 
   xit('can deleted all completed tasks', function(){
